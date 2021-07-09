@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Satria</string>
+    <string name="Hai">Hi,</string>
+    <string name="Where">Where do you want to go?</string>
+    <string name="Hot">HOT PLACES</string>
+    <string name="search_hint">serach hint</string>
+    <string name="Wisata">Wisata</string>
+    <string name="Rental">Rental</string>
+    <string name="Hotel">Hotel</string>
+    <string name="Restaurant">Restoran</string>
+    <string name="Artikel">Satria News</string>
+
+</resources>

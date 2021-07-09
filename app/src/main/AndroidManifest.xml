@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.muhammad_alvi_awliya_18102239.satria">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".restaurant.Listrest" android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".hotel.Listhotel" android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".wisata.Listwisata" android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".transportasi.Listtrans" android:parentActivityName=".MainActivity"></activity>
+
+        <activity android:name=".berita.DetailActivityBerita"
+            android:parentActivityName=".restaurant.Listrest"
+            android:theme="@style/AppBaseTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".restaurant.Listrest" /></activity>
+        <activity android:name=".restaurant.DetailActivityRest"
+            android:parentActivityName=".restaurant.Listrest"
+            android:theme="@style/AppBaseTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".restaurant.Listrest" /></activity>
+
+        <activity android:name=".hotel.DetailActivityHotel"
+            android:parentActivityName=".restaurant.Listrest"
+            android:theme="@style/AppBaseTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".restaurant.Listrest" /></activity>
+
+        <activity android:name=".wisata.DetailActivity"
+            android:parentActivityName=".wisata.Listwisata"
+            android:theme="@style/AppBaseTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".wisata.Listwisata" /></activity>
+
+        <activity android:name=".transportasi.DetailActivityTrans"
+            android:parentActivityName=".transportasi.Listtrans"
+            android:theme="@style/AppBaseTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".transportasi.Listtrans" /></activity>
+
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+    </application>
+
+</manifest>
