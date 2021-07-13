@@ -1,4 +1,4 @@
-package com.muhammad_alvi_awliya_18102239.satria.hotel
+package com.muhammad_alvi_awliya_18102239.satria.berita
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -13,24 +13,25 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.muhammad_alvi_awliya_18102239.satria.R
 import com.muhammad_alvi_awliya_18102239.satria.retrofit.ApiService
 import kotlinx.android.synthetic.main.activity_listrest.*
+import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
 
 
-class Listhotel : AppCompatActivity(){
+class Listberita : AppCompatActivity(){
 
-    private val TAG: String = "Listhotel"
+    private val TAG: String = "Listberita"
 
-    private lateinit var listhotelAdapter: ListhotelAdapter
+    private lateinit var beritaAdapter: BeritaAdapter
 
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_listhotel)
-        supportActionBar!!.title = "Hotel"
+        setContentView(R.layout.activity_listberita)
+        supportActionBar!!.title = "Satria News"
 
     }
 
@@ -43,38 +44,35 @@ class Listhotel : AppCompatActivity(){
 
 
     private fun setupRecyclerView(){
-        listhotelAdapter = ListhotelAdapter(arrayListOf(), object : ListhotelAdapter.OnAdapterListener {
-            override fun onClick(results: ListHotelModel) {
+        beritaAdapter = BeritaAdapter(arrayListOf(), object : BeritaAdapter.OnAdapterListener {
+            override fun onClick(results: BeritaModel) {
                 startActivity(
-                        Intent(this@Listhotel, DetailActivityHotel::class.java)
-                                .putExtra("intent_title", results.name)
-                                .putExtra("intent_foto", results.foto)
-                                .putExtra("intent_desc", results.desc)
-                                .putExtra("intent_harga", results.harga)
-                                .putExtra("intent_map", results.map)
-                                .putExtra("intent_telp", results.telp)
-                                .putExtra("intent_web", results.web)
+                        Intent(this@Listberita, DetailActivityBerita::class.java)
+                                .putExtra("intent_judul", results.judul)
+                                .putExtra("intent_tanggal", results.tanggal)
+                                .putExtra("intent_gambar", results.gambar)
+                                .putExtra("intent_isi", results.isi)
+
 
                 )
             }
         })
-        recyclerView_rest.apply {
+        recyclerView_berita.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = listhotelAdapter
+            adapter = beritaAdapter
         }
     }
 
     private fun getDataFromApi(){
-        showLoading(true)
-        ApiService.endpoint.data_hotel()
-                .enqueue(object : Callback<List<ListHotelModel>> {
-                    override fun onFailure(call: Call<List<ListHotelModel>>, t: Throwable) {
+        ApiService.endpoint.berita()
+                .enqueue(object : Callback<List<BeritaModel>> {
+                    override fun onFailure(call: Call<List<BeritaModel>>, t: Throwable) {
                         printLog( t.toString() )
                         showLoading(false)
                     }
                     override fun onResponse(
-                            call: Call<List<ListHotelModel>>,
-                            response: Response<List<ListHotelModel>>
+                            call: Call<List<BeritaModel>>,
+                            response: Response<List<BeritaModel>>
                     ) {
                         showLoading(false)
                         if (response.isSuccessful) {
@@ -88,18 +86,17 @@ class Listhotel : AppCompatActivity(){
         Log.d(TAG, message)
     }
 
+    private fun showData(results:  List<BeritaModel>) {
+        for (result in results) printLog( "title: ${result.judul}" )
+        beritaAdapter.setData(results as MutableList<BeritaModel>)
+    }
+
     private fun showLoading(loading: Boolean) {
         when(loading) {
             true -> progressBar.visibility = View.VISIBLE
             false -> progressBar.visibility = View.GONE
         }
     }
-    private fun showData(results:  List<ListHotelModel>) {
-        for (result in results) printLog( "title: ${result.name}" )
-        listhotelAdapter.setData(results as MutableList<ListHotelModel>)
-    }
-
-
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -117,10 +114,9 @@ class Listhotel : AppCompatActivity(){
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
-                listhotelAdapter.getFilter().filter(newText)
+                beritaAdapter.getFilter().filter(newText)
                 return true
             }
         })
     }
-
 }

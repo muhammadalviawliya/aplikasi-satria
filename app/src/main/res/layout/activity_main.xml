@@ -177,12 +177,28 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView_berita"
                 android:layout_width="0dp"
-                android:layout_height="330dp"
+                android:layout_height="190dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:listitem="@layout/adapter_berita"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="620dp">
+            <Button
+                android:id="@+id/btnsee"
+                android:text="See All.."
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:layout_height="30dp"
+                android:layout_width="70dp"
+                android:background="#E0F2F0"
+                android:layout_marginStart="320dp"
+                android:lineHeight="0dp"
+                android:stateListAnimator="@null"/>
+        </LinearLayout>
 
     </RelativeLayout>
 

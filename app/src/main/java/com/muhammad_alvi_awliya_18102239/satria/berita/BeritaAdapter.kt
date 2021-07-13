@@ -17,8 +17,8 @@ class BeritaAdapter (var results: ArrayList<BeritaModel>, private val listener: 
     var tableList: MutableList<BeritaModel> = mutableListOf()
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder (
-        LayoutInflater.from( parent.context ).inflate( R.layout.adapter_berita, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.adapter_berita, parent, false)
     )
 
     override fun getItemCount() = results.size
@@ -27,22 +27,21 @@ class BeritaAdapter (var results: ArrayList<BeritaModel>, private val listener: 
         val result = results[position]
         holder.view.textView.text = result.judul
         Glide.with(holder.view)
-            .load(result.gambar)
-            .placeholder(R.drawable.img_placeholder)
-            .error(R.drawable.img_placeholder)
-            .centerCrop()
-            .into(holder.view.imageView)
-        holder.view.setOnClickListener { listener.onClick( result ) }
+                .load(result.gambar)
+                .placeholder(R.drawable.img_placeholder)
+                .error(R.drawable.img_placeholder)
+                .centerCrop()
+                .into(holder.view.imageView)
+        holder.view.setOnClickListener { listener.onClick(result) }
     }
 
-    class ViewHolder(val view: View): RecyclerView.ViewHolder(view)
+    class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
-    fun setData(data: MutableList<BeritaModel>){
+    fun setData(data: MutableList<BeritaModel>) {
         tableList = data.toMutableList() // makes a copy
         results = data as ArrayList<BeritaModel>
         notifyDataSetChanged()
     }
-
 
 
     interface OnAdapterListener {
@@ -72,6 +71,5 @@ class BeritaAdapter (var results: ArrayList<BeritaModel>, private val listener: 
             }
         }
     }
-
 
 }

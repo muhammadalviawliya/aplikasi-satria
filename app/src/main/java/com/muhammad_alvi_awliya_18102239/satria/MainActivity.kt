@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.muhammad_alvi_awliya_18102239.satria.berita.BeritaAdapter
 import com.muhammad_alvi_awliya_18102239.satria.berita.BeritaModel
 import com.muhammad_alvi_awliya_18102239.satria.berita.DetailActivityBerita
+import com.muhammad_alvi_awliya_18102239.satria.berita.Listberita
 import com.muhammad_alvi_awliya_18102239.satria.hotel.Listhotel
 import com.muhammad_alvi_awliya_18102239.satria.restaurant.Listrest
 import com.muhammad_alvi_awliya_18102239.satria.retrofit.ApiService
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     //--slide show--
 
-    private val TAG: String = "Listwisata"
+    private val TAG: String = "home"
 
     private lateinit var beritaAdapter: BeritaAdapter
 
@@ -44,31 +45,33 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //tombol back
         btnwisata.setOnClickListener {
             val bIntent = Intent(this, Listwisata::class.java)
             startActivity(bIntent)
             Toast.makeText(this, "open dasboard", Toast.LENGTH_SHORT).show()
         }
-        //--tombol back--
 
         btntrans.setOnClickListener {
             val bIntent = Intent(this, Listtrans::class.java)
             startActivity(bIntent)
             Toast.makeText(this, "open dasboard", Toast.LENGTH_SHORT).show()
         }
-        //--tombol back--
-        //--tombol back--
+
 
         btnrest.setOnClickListener {
             val bIntent = Intent(this, Listrest::class.java)
             startActivity(bIntent)
             Toast.makeText(this, "open dasboard", Toast.LENGTH_SHORT).show()
         }
-        //--tombol back--
 
         btnhotel.setOnClickListener {
             val bIntent = Intent(this, Listrest::class.java)
+            startActivity(bIntent)
+            Toast.makeText(this, "open dasboard", Toast.LENGTH_SHORT).show()
+        }
+
+        btnsee.setOnClickListener {
+            val bIntent = Intent(this, Listberita::class.java)
             startActivity(bIntent)
             Toast.makeText(this, "open dasboard", Toast.LENGTH_SHORT).show()
         }
@@ -99,8 +102,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(rest)
         }
         btnhotel.setOnClickListener{
-            val rest = Intent(this@MainActivity,   Listhotel::class.java)
-            startActivity(rest)
+            val hotel = Intent(this@MainActivity,   Listhotel::class.java)
+            startActivity(hotel)
+        }
+        btnsee.setOnClickListener{
+            val see = Intent(this@MainActivity,   Listberita::class.java)
+            startActivity(see)
         }
 
 
