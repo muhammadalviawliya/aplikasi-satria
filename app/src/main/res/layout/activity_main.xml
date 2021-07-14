@@ -70,7 +70,7 @@
                     android:layout_height="50dp"
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/wisata"
+                    android:background="@drawable/tombol_wisata"
                     android:textSize="12sp" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -87,21 +87,21 @@
                 android:layout_height="100dp"
                 android:orientation="vertical">
                 <Button
-                    android:id="@+id/btntrans"
+                    android:id="@+id/btnrest"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/car"/>
+                    android:background="@drawable/tombol_resto"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Rental"
-                    android:layout_gravity="center"
+                    android:text="@string/Restaurant"
                     android:textStyle="bold"
                     android:textSize="15sp"
+                    android:layout_gravity="center"
                     android:textColor="@color/white"/>
-
             </LinearLayout>
             <LinearLayout
                 android:layout_width="85dp"
@@ -113,7 +113,7 @@
                     android:layout_height="50dp"
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/hotel"/>
+                    android:background="@drawable/tombol_hotel"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -128,25 +128,22 @@
                 android:layout_height="100dp"
                 android:orientation="vertical">
                 <Button
-                    android:id="@+id/btnrest"
+                    android:id="@+id/btntrans"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="20dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/restoran"/>
-
+                    android:background="@drawable/tombol_rental"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/Restaurant"
+                    android:text="@string/Rental"
+                    android:layout_gravity="center"
                     android:textStyle="bold"
                     android:textSize="15sp"
-                    android:layout_gravity="center"
                     android:textColor="@color/white"/>
+
             </LinearLayout>
-
-
-
         </LinearLayout>
 
         <LinearLayout
